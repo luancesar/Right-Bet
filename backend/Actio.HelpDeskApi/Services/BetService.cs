@@ -84,7 +84,7 @@ namespace Actio.HelpDeskApi.Services
                     Lucro = u.Lucro.ToString(),
                     SaldoAtual = u.SaldoAtual.ToString(),
                     Porcentagem = u.Porcentagem.ToString()
-                }).OrderByDescending(b => b.Id).ToList();
+                }).ToList();
 
             }
             catch (Exception e)

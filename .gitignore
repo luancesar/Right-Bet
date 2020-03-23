@@ -14,3 +14,7 @@ backend/.vs/Actio.HelpDesk/v16/Server/sqlite3/storage.ide
 backend/Actio.HelpDeskApi/obj/Actio.HelpDeskApi.csproj.nuget.cache
 
 backend/Actio.HelpDeskApi/obj/Actio.HelpDeskApi.csproj.nuget.dgspec.json
+
+backend/Actio.HelpDeskApi/obj/
+
+backend/Actio.HelpDeskApi/bin/

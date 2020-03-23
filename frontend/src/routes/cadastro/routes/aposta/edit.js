@@ -105,12 +105,9 @@ class EditForm extends React.Component {
                     <Row>
                         <Col> 
                             <FormItem>
-                                {getFieldDecorator('green', {
-                                rules: [{ required: true, message: 'Por favor, insira um Nome!'}],
-                                })(
-                                    <Checkbox
-                                  >
-                                    {"Green"}
+                                {getFieldDecorator('green')(
+                                    <Checkbox>
+                                        {"Green"}
                                   </Checkbox>
                                 )}
                             </FormItem>

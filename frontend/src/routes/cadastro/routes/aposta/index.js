@@ -6,7 +6,7 @@ import api from '../../../../services/api';
 import moment from 'moment';
 import { DatePicker, Icon, Button } from 'antd';
 import { connect } from 'react-redux';
-import {changeLayout} from 'actions/settingsActions';
+import { changeLayout } from 'actions/settingsActions';
 
 const columns = [
   {
@@ -56,7 +56,9 @@ const DownloadFileUrl = (url, nomeArquivo) => {
 
 }
 class Page extends React.Component {
-
+  state = {
+    loading: false
+  }
   normalScreen() {
     const { handleLayoutChange } = this.props;
     handleLayoutChange("1");
@@ -65,15 +67,23 @@ class Page extends React.Component {
 
 
   async downloadReport() {
-    let response = await api.post(`/bet/downloadReport`, {endereco:window.location.origin})
 
+    this.setState({
+      loading: true
+    })
+    let response = await api.post(`/bet/downloadReport`, { endereco: window.location.origin })
+
+
+    this.setState({
+      loading: false
+    })
     window.location.href = 'data:application/octet-stream;base64,' + response.data;
   }
 
-  
+
   render() {
-    let button=<Button onClick={this,this.downloadReport.bind(this)} type="primary" style={{ marginBottom: 16 }}>
-                  Gerar Relatório
+    let button = <Button loading={this.state.loading} onClick={this, this.downloadReport.bind(this)} type="primary" style={{ marginBottom: 16 }}>
+      Gerar Relatório
                 </Button>
     return (
       <div>

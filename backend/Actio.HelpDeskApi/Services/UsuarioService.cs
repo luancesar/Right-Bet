@@ -120,18 +120,23 @@ namespace Actio.HelpDeskApi.Services
                 var betsMonth = bets.Where(b => b.Date.Month == DateTime.Now.Month && b.Date.Year == DateTime.Now.Year);
 
                 var entradas = Convert.ToDecimal(betsDay.Count());
-                var greens = Convert.ToDecimal(betsDay.Where(b =>  b.Green).Count());
-                var rentabilidade = betsDay.Sum(b => Convert.ToDecimal(b.Lucro));
-                var parcial = betsMonth.Sum(b => Convert.ToDecimal(b.Lucro));
+                var greens = betsDay.Where(b =>  b.Green).Count();
+                var reds = betsDay.Where(r => !r.Green).Count();
+
+                var rentabilidadeReal = betsDay.Sum(b => Convert.ToDecimal(b.Lucro));
+                var rentabilidadePercentual = betsDay.FirstOrDefault().Porcentagem;
+                var parcial = (decimal)18.75 + Convert.ToDecimal(rentabilidadePercentual);
 
                 var report = new ReportModel()
                 {
                     BancaAtual = user.BancaAtual,
                     BancaInicial = user.BancaInicial,
                     Entradas = (int)entradas,
-                    PorcentagemGreen = entradas>0 ? (greens/entradas)*100 : (decimal)0.5,
-                    Rentabilidade = rentabilidade,
-                    Parcial = parcial
+                    RentabilidadeReal = rentabilidadeReal,
+                    RentabilidadePercentual = rentabilidadePercentual,
+                    Parcial = parcial,
+                    QuantidadeGreen = greens,
+                    QuantidadeRed = reds,
                 };
 
                 return report;

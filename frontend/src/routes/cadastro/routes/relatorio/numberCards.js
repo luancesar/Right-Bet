@@ -4,7 +4,7 @@ import imagem from './imagem'
 import api from '../../../../services/api';
 
 const style = { color: "#182795", fontFamily: "Segoe UI" }
-const styleInfo = { color: "#ccc10f", fontFamily: "Segoe UI" }
+const styleInfo = { color: "#black", fontFamily: "Segoe UI" }
 
 class Cards extends React.Component {
   state = {
@@ -45,7 +45,7 @@ class Cards extends React.Component {
 
               <div className="col-xl-8 mt-3" >
                 <div className="card-right">
-                  <span style={{ color: "#182795", fontSize: "110px", fontFamily: "Segoe UI" }} className="h25">Relatório Diário</span>
+                  <span style={{ color: "#182795", fontSize: "70px", fontFamily: "Segoe UI" }} className="h25">Relatório Diário Galgos AvB</span>
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@ class Cards extends React.Component {
                   <span style={style}><span className="h5">R$ </span>{data && data.bancaInicial}</span>
                 </div>
                 <div className="card-info">
-                  <span style={styleInfo}>Banca Inicial <Icon type="arrow-up" /> <Icon type="pause" /> <Icon type="arrow-down" /> Banca Atual</span>
+                  <span style={style}>Banca Inicial <Icon type="arrow-up" /> <Icon type="pause" /> <Icon type="arrow-down" /> Banca Atual</span>
                 </div>
                 <div className="card-bottom mb-2">
                   <span style={style}><span className="h5">R$ </span>{data && data.bancaAtual}</span>
@@ -70,26 +70,26 @@ class Cards extends React.Component {
               <div className="number-card-v1">
                 <div className="card-top mt-1">
 
-                  <span style={style}>{data && data.entradas}</span>
+                  <span style={{ color: "green", fontFamily: "Segoe UI" }}>{data && data.quantidadeGreen}</span>
                 </div>
                 <div className="card-info">
-                  <span style={styleInfo}>Entradas <Icon type="arrow-up" /> <Icon type="pause" /> <Icon type="arrow-down" /> Greens ( % )</span>
+                  <span style={style}>Green <Icon type="arrow-up" /> <Icon type="pause" /> Entradas<Icon type="pause" /> <Icon type="arrow-down" /> Red</span>
                 </div>
                 <div className="card-bottom mb-2">
-                  <span style={style}>{data && data.porcentagemGreen}<span className="h5">%</span></span>
+                  <span style={{ color: "red", fontFamily: "Segoe UI" }}>{data && data.quantidadeRed}</span>
                 </div>
               </div>
             </div>
             <div className="col-xl-3">
               <div className="number-card-v1">
                 <div className="card-top mt-1">
-                  <Icon type="fund" theme="twoTone" twoToneColor="#182795" />
+                  <span style={style}><span className="h5">R$ </span>{data && data.rentabilidadeReal}</span>
                 </div>
                 <div className="card-info">
-                  <span style={styleInfo}>Rentabilidade</span>
+                  <span style={style}>(R$) <Icon type="arrow-up" /> <Icon type="pause" /> Rentabilidade<Icon type="pause" /> <Icon type="arrow-down" /> (%)</span>
                 </div>
                 <div className="card-bottom mb-2">
-                  <span style={style}>{data && data.rentabilidade}<span className="h5">%</span></span>
+                  <span style={style}>{data && data.rentabilidadePercentual}<span className="h5">%</span></span>
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@ class Cards extends React.Component {
                   <Icon type="rocket" theme="twoTone" twoToneColor="#182795" />
                 </div>
                 <div className="card-info">
-                  <span style={styleInfo}>Parcial (Mês)</span>
+                  <span style={style}>Parcial (Mês)</span>
                 </div>
                 <div className="card-bottom mb-2">
                   <span style={style}>{data && data.parcial}<span className="h5">%</span></span>

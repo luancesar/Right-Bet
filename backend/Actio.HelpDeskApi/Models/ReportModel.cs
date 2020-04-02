@@ -12,7 +12,7 @@ namespace Actio.HelpDeskApi.Models
         public int Entradas { get; set; }
         public decimal PorcentagemGreen { get; set; }
         public decimal RentabilidadeReal { get; set; }
-        public string RentabilidadePercentual { get; set; }
+        public decimal RentabilidadePercentual { get; set; }
         public decimal Parcial { get; set; }
         public int QuantidadeGreen { get; set; }
         public int QuantidadeRed { get; set; }

@@ -35,7 +35,7 @@ namespace Actio.HelpDeskApi.Controllers
         {
             var resposta = await _betService.GetBets();
 
-            return Ok(resposta.ToArray());
+            return Ok(resposta.ToArray().OrderByDescending(b => b.Date));
         }
 
         [HttpPost("delete")]

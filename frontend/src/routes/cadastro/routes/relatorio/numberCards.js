@@ -73,7 +73,7 @@ class Cards extends React.Component {
                   <span style={{ color: "green", fontFamily: "Segoe UI" }}>{data && data.quantidadeGreen}</span>
                 </div>
                 <div className="card-info">
-                  <span style={style}>Green <Icon type="arrow-up" /> <Icon type="pause" /> Entradas<Icon type="pause" /> <Icon type="arrow-down" /> Red</span>
+                  <span style={style}>Green <Icon type="arrow-up" /> <Icon type="pause" /> Entradas do dia<Icon type="pause" /> <Icon type="arrow-down" /> Red</span>
                 </div>
                 <div className="card-bottom mb-2">
                   <span style={{ color: "red", fontFamily: "Segoe UI" }}>{data && data.quantidadeRed}</span>
@@ -86,7 +86,7 @@ class Cards extends React.Component {
                   <span style={style}><span className="h5">R$ </span>{data && data.rentabilidadeReal}</span>
                 </div>
                 <div className="card-info">
-                  <span style={style}>(R$) <Icon type="arrow-up" /> <Icon type="pause" /> Rentabilidade<Icon type="pause" /> <Icon type="arrow-down" /> (%)</span>
+                  <span style={style}>(R$) <Icon type="arrow-up" /> <Icon type="pause" /> Rentabilidade do DIA<Icon type="pause" /> <Icon type="arrow-down" /> (%)</span>
                 </div>
                 <div className="card-bottom mb-2">
                   <span style={style}>{data && data.rentabilidadePercentual}<span className="h5">%</span></span>

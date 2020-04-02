@@ -124,8 +124,7 @@ namespace Actio.HelpDeskApi.Services
                 var reds = betsDay.Where(r => !r.Green).Count();
 
                 var rentabilidadeReal = betsDay.Sum(b => Convert.ToDecimal(b.Lucro));
-                var rentabilidadePercentual = betsDay.FirstOrDefault().Porcentagem;
-                var parcial = (decimal)18.75 + Convert.ToDecimal(rentabilidadePercentual);
+                var rentabilidadePercentual = betsDay.Sum(b => Convert.ToDecimal(b.Porcentagem));
 
                 var report = new ReportModel()
                 {
@@ -134,7 +133,7 @@ namespace Actio.HelpDeskApi.Services
                     Entradas = (int)entradas,
                     RentabilidadeReal = rentabilidadeReal,
                     RentabilidadePercentual = rentabilidadePercentual,
-                    Parcial = parcial,
+                    Parcial = user.PorcentagemFaturamento,
                     QuantidadeGreen = greens,
                     QuantidadeRed = reds,
                 };

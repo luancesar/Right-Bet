@@ -44,8 +44,11 @@ namespace Actio.HelpDeskApi.Services
                 bet.Lucro = CalcProfit(bet.Green, bet.Stake, bet.ODD);
 
                 usuario.AtualizarBancaAtual(bet.Lucro);
-                bet.Porcentagem = usuario.PorcentagemFaturamento;
-                bet.SaldoAtual = usuario.BancaAtual;
+
+                var saldo = usuario.BancaInicial + bet.Lucro;
+                bet.Porcentagem = (saldo - usuario.BancaInicial) / usuario.BancaInicial * 100;
+                
+                //bet.SaldoAtual = usuario.BancaAtual;
 
                 await _betRepository.AddAsync(bet);
 
